@@ -10,8 +10,8 @@ const corsOptions = {
   optionSuccessStatus: 200
 };
 const bodyParser = require('body-parser')
-const tournamentController = require("../backend/controllers/tournaments");
-const userController = require("../backend/controllers/users");
+const tournamentController = require("./controllers/tournaments");
+const userController = require("./controllers/users");
 
 
 mongoose
