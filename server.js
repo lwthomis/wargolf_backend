@@ -5,7 +5,7 @@ require('dotenv').config();
 
 const cors = require("cors");
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: 'https://git.heroku.com/capstone-backend-wargolf.git',
   credentials: false,
   optionSuccessStatus: 200
 };
