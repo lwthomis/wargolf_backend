@@ -5,13 +5,14 @@ require('dotenv').config();
 
 const cors = require("cors");
 const corsOptions = {
-  origin: 'https://capstone-backend-wargolf.herokuapp.com/',
+  origin: 'http://localhost:3000',
   credentials: false,
   optionSuccessStatus: 200
 };
 const bodyParser = require('body-parser')
 const tournamentController = require("./controllers/tournaments");
 const userController = require("./controllers/users");
+const resultController = require("./controllers/results");
 
 
 mongoose
@@ -35,6 +36,12 @@ mongoose
     app.patch("/tournaments/:id", cors(), tournamentController.updateTournament);
     app.delete("/tournaments/:id", cors(), tournamentController.deleteTournament);
 
+    app.get("/results", cors(), resultController.findResults);
+    app.post("/results", cors(), resultController.createResult);
+    app.get("/results/:id", cors(), resultController.findResult);
+    app.patch("/results/:id", cors(), resultController.updateResult);
+    app.delete("/results/:id", cors(), resultController.deleteResult);
+
     app.get("/users", cors(), userController.findUsers); 
     app.post("/users", cors(), userController.createUser);
     app.get("/users/:email", cors(), userController.findUser);
@@ -43,8 +50,7 @@ mongoose
     app.post("/login", cors(), userController.signInUser);
 
 
-    const PORT = process.env.PORT || 3001;
-    app.listen(PORT, () => {
+    app.listen(3001, () => {
       console.log("Server has started at port 3001");
     });
   })
