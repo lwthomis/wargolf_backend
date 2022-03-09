@@ -50,8 +50,8 @@ mongoose
     app.post("/login", cors(), userController.signInUser);
 
 
-    app.listen(3001, () => {
-      console.log("Server has started at port 3001");
+    app.listen(PORT, () => {
+      console.log(`Server has started at port ${PORT}`);
     });
   })
   .catch(() => {
